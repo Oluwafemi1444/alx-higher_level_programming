@@ -1,23 +1,13 @@
 #!/usr/bin/python3
 """
-This modules contains a class
-that inherits from int
+adds an object
 """
 
 
-class MyInt(int):
+def add_attribute(obj, name, value):
     """
-    responds opposite to == and !=
+        adds a new attribute to object
     """
-    def __eq__(self, other):
-        """
-        returns opposite of equal
-        """
-        return (not super().__eq__(other))
-
-    def __ne__(self, other):
-        """
-        returns opposite of not equal
-        """
-        return (not super().__ne__(other))
-
+    if not hasattr(obj, "__dict__"):
+        raise TypeError("can't add new attribute")
+    setattr(obj, name, value)
